@@ -5,10 +5,6 @@ const { MongoClient, ObjectID } = require('mongodb');
 const connectionURL = 'mongodb://127.0.0.1:27017';
 const databaseName = 'task-manager';
 
-const id = new ObjectID();
-console.log(id.id.length);
-console.log(id.toHexString().length);
-
 MongoClient.connect(
   connectionURL,
   {
@@ -22,47 +18,56 @@ MongoClient.connect(
 
     const db = client.db(databaseName);
 
-    // db.collection('users').insertOne(
-    //   {
-    //     name: 'Yonatan',
-    //     age: 26,
-    //   },
-    //   (error, result) => {
+    // db.collection('users').findOne(
+    //   { _id: new ObjectID('6138f864555fb178a14f85be') },
+    //   (error, user) => {
     //     if (error) {
-    //       return console.log('Unable to insert user');
+    //       return console.log('Unable to fetch user information');
     //     }
 
-    //     console.log(result.ops);
+    //     console.log(user);
     //   }
     // );
 
-    // db.collection('users').insertMany(
-    //   [
-    //     { name: 'Jen', age: 28 },
-    //     { name: 'Gunther', age: 27 },
-    //   ],
-    //   (error, result) => {
+    // db.collection('users')
+    //   .find({ age: 27 })
+    //   .toArray((error, users) => {
     //     if (error) {
-    //       return console.log('Unable to insert documents');
+    //       return console.log('Unable to fetch user information');
     //     }
 
-    //     console.log(result.ops);
-    //   }
-    // );
+    //     console.log(users);
+    //   });
 
-    // db.collection('tasks').insertMany(
-    //   [
-    //     { description: 'Installed mongoDB on macbook', completed: true },
-    //     { description: 'Set up the new task manager app', completed: true },
-    //     { description: 'Finished udemy node.js course', completed: false },
-    //   ],
-    //   (error, result) => {
+    // db.collection('users')
+    //   .find({ age: 27 })
+    //   .count((error, users) => {
     //     if (error) {
-    //       return console.log('Unable to insert documents');
+    //       return console.log('Unable to fetch user information');
     //     }
 
-    //     console.log(result.ops);
-    //   }
-    // );
+    //     console.log(users);
+    //   });
+
+    db.collection('tasks').findOne(
+      { _id: new ObjectID('613900717372057d280550ea') },
+      (error, user) => {
+        if (error) {
+          return console.log('Unable to fetch user information');
+        }
+
+        console.log(user);
+      }
+    );
+
+    db.collection('tasks')
+      .find({ completed: false })
+      .toArray((error, users) => {
+        if (error) {
+          return console.log('Unable to fetch user information');
+        }
+
+        console.log(users);
+      });
   }
 );
