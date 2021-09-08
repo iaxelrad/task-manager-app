@@ -13,6 +13,7 @@
     "@types/mongodb": "^4.0.7"
   },
   "dependencies": {
-    "mongodb": "^3.7.0"
+    "mongodb": "^3.7.0",
+    "mongoose": "^5.13.9"
   }
 }
