@@ -9,10 +9,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "mongodb": "^3.1.0"
-  },
   "devDependencies": {
     "@types/mongodb": "^4.0.7"
+  },
+  "dependencies": {
+    "mongodb": "^3.7.0"
   }
 }
