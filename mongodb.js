@@ -45,61 +45,30 @@ MongoClient.connect(
     //     console.log(error);
     //   });
 
-    db.collection('tasks')
-      .updateMany(
-        { completed: false },
-        {
-          $set: {
-            completed: true,
-          },
-        }
-      )
-      .then(result => {
-        console.log(result);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-
-    // db.collection('users')
-    //   .find({ age: 27 })
-    //   .toArray((error, users) => {
-    //     if (error) {
-    //       return console.log('Unable to fetch user information');
-    //     }
-
-    //     console.log(users);
-    //   });
-
-    // db.collection('users')
-    //   .find({ age: 27 })
-    //   .count((error, users) => {
-    //     if (error) {
-    //       return console.log('Unable to fetch user information');
-    //     }
-
-    //     console.log(users);
-    //   });
-
-    // db.collection('tasks').findOne(
-    //   { _id: new ObjectID('613900717372057d280550ea') },
-    //   (error, user) => {
-    //     if (error) {
-    //       return console.log('Unable to fetch user information');
-    //     }
-
-    //     console.log(user);
-    //   }
-    // );
-
     // db.collection('tasks')
-    //   .find({ completed: false })
-    //   .toArray((error, users) => {
-    //     if (error) {
-    //       return console.log('Unable to fetch user information');
+    //   .updateMany(
+    //     { completed: false },
+    //     {
+    //       $set: {
+    //         completed: true,
+    //       },
     //     }
-
-    //     console.log(users);
+    //   )
+    //   .then(result => {
+    //     console.log(result);
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
     //   });
+
+    db.collection('users')
+      .deleteMany({ age: 27 })
+      .then(result => console.log(result))
+      .catch(error => console.log(error));
+
+    db.collection('users')
+      .deleteOne({ name: 'Yonatan' })
+      .then(result => console.log(result))
+      .catch(error => console.log(error));
   }
 );
