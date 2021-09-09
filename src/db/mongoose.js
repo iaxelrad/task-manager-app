@@ -6,20 +6,40 @@ mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api', {
   useUnifiedTopology: true,
 });
 
-const User = mongoose.model('User', {
-  name: {
+// const User = mongoose.model('User', {
+//   name: {
+//     type: String,
+//   },
+//   age: {
+//     type: Number,
+//   },
+// });
+
+// const me = new User({ name: 'Itamar', age: 31 });
+
+// me.save()
+//   .then(() => {
+//     console.log(me);
+//   })
+//   .catch(error => {
+//     console.log('Error', error);
+//   });
+
+const Task = mongoose.model('Task', {
+  description: {
     type: String,
   },
-  age: {
-    type: Number,
+  completed: {
+    type: Boolean,
   },
 });
 
-const me = new User({ name: 'Itamar', age: 31 });
+const task = new Task({ description: 'Do the first Task instance', completed: true });
 
-me.save()
+task
+  .save()
   .then(() => {
-    console.log(me);
+    console.log(task);
   })
   .catch(error => {
     console.log('Error', error);
